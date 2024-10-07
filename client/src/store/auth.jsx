@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState("")
     const [services, setServices] = useState("")
     const [projects, setProjects] = useState("")
+    const [experience, setExperience] = useState("")
 
     const storeTokenInLocalStorage = (serverToken) => {
         setToken(serverToken)
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
 
             if (response.ok) {
                 const data = await response.json()
-                console.log(data.userData);
+                // console.log("User Data", data.userData);
                 setUser(data.userData)
             } else {
                 console.log("Error Fetching User Data");
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
 
             if (response.ok) {
                 const servicesData = await response.json()
-                console.log(servicesData.msg);
+                // console.log(servicesData.msg);
                 setServices(servicesData.msg)
             } else {
                 console.log("Error Fetching Services Data");
@@ -72,7 +73,7 @@ export const AuthProvider = ({ children }) => {
 
             if (response.ok) {
                 const projectData = await response.json()
-                console.log(projectData.msg);
+                // console.log(projectData.msg);
                 setProjects(projectData.msg)
             } else {
                 console.log("Error Fetching Projects Data");
@@ -82,15 +83,34 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    const getExperience = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/data/experience', {
+                method: 'GET',
+            })
+
+            if (response.ok) {
+                const experienceData = await response.json()
+                // console.log(projectData.msg);
+                setExperience(experienceData.msg)
+            } else {
+                console.log("Error Fetching Experience Data");
+            }
+        } catch (error) {
+            console.log(`Experience Frontend Error: ${error}`);
+        }
+    }
+
     useEffect(() => {
         getServices()
         getProjects()
+        getExperience()
         userAuthentication()
     }, [])
 
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLocalStorage, LogoutUser, user, services, projects }}>
+        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLocalStorage, LogoutUser, user, services, projects, experience }}>
             {children}
         </AuthContext.Provider>
     )

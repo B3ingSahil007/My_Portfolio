@@ -6,6 +6,8 @@ const authRoute = require('./router/auth-router')
 const contactRoute = require('./router/contact-router')
 const serviceRoute = require('./router/service-router')
 const projectRoute = require('./router/project-router')
+const experienceRoute = require('./router/experience-router')
+const adminRoute = require('./router/admin-router')
 const connectDB = require('./utils/db')
 
 const corsOptions = {
@@ -22,6 +24,8 @@ app.use("/api/auth", authRoute)
 app.use("/api/form", contactRoute)
 app.use("/api/data", serviceRoute)
 app.use("/api/data", projectRoute)
+app.use("/api/data", experienceRoute)
+app.use("/api/admin", adminRoute)
 
 // app.get('/', (req, res) => {
 //     res.status(200).send('Home Page . . .')

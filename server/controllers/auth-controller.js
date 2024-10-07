@@ -19,7 +19,7 @@ const registeration = async (req, res) => {
 
         if (userExist) {
             console.log("E-Mail Is Already Exists", email);
-            return res.status(400).json({ msg: "E-Mail Is Already Exists" })
+            return res.status(400).json({ message: "E-Mail Is Already Exists" })
         }
 
         //^ Method 1 For password Hashing

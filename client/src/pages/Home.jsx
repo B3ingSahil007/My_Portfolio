@@ -33,7 +33,7 @@ const Home = () => {
         <p>"Feel free to explore my work in services or reach out if you're interested in collaborating!"</p>
       </div> */}
         {/*//^ Introduction */}
-        <div className="col intro ">
+        <div className="col intro">
           <h2>Hello! I'm <span className='custom-text' style={{ color: '#5479f7' }}>Sahil Miyawala</span>.</h2>
           <p>A dedicated and creative Frontend Developer and Web Designer with a passion for building interactive, responsive, and user-focused web applications.</p>
           <p>With expertise in React, JavaScript, HTML, and CSS and more, I enjoy turning complex problems into simple, beautiful solutions.</p>
@@ -55,7 +55,7 @@ const Home = () => {
         </div>
         <div className="col intro">
           <p>We are here to help you :</p>
-          <h2>Get Started <span style={{ color: '#5479f7' }}>Today</span>,</h2>
+          <h2>Get Started <span className='custom-text' style={{ color: '#5479f7' }}>Today</span>,</h2>
           <p>As a passionate developer, I'm here to showcase my skills and projects that reflect my journey in web development. From crafting responsive designs to implementing interactive features, my work demonstrates my commitment to quality and creativity.</p>
           <p>Explore my projects, discover my approach, and see how I can help bring your ideas to life.</p>
           <p>Let’s connect and collaborate on your next project!</p>
@@ -71,8 +71,11 @@ const Home = () => {
                     transition: text-shadow 0.4s ease;
                 }
                 .custom-text:hover {
-                    text-shadow: 5px 5px 5px grey;
+                    text-shadow: 3px 3px 5px grey;
                 }
+                    img{
+                    width: 10cm !important
+                    }
             `}</style>
     </>
   );

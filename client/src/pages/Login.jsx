@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../store/auth'
+import { toast } from 'react-toastify'
 
 const URL = 'http://localhost:5000/api/auth/login'
 
 const Login = () => {
+    const { user } = useAuth()
+
     const navigate = useNavigate()
 
-    const [user, setUser] = useState({
+    const [userO, setUser] = useState({
         email: "",
         password: "",
     })
 
     const handleLoginInput = (e) => {
         const { name, value } = e.target
-        setUser({ ...user, [name]: value });
+        setUser({ ...userO, [name]: value });
     }
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        console.log(user);
+        console.log(userO);
 
         try {
             //^ Connect Frontend To Server Or Backend
@@ -28,22 +31,21 @@ const Login = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(user),
+                body: JSON.stringify(userO),
             })
 
-            if (response.ok === true) {
-                const res_data = await response.json();
-                console.log("Response From Server", res_data);
-                storeTokenInLocalStorage(res_data.token)
-                alert('Login Successfull, Welcome User')
-                setUser({ email: "", password: "" })
-                navigate('/')
-            } else {
-                alert("Invalid Credentials !!")
-                console.log("Invalid Credentials !!");
-            }
+            const res_data = await response.json();
+            console.log("Response From Server", res_data);
 
-            console.log("Login Form", response);
+            if (response.ok) {
+                storeTokenInLocalStorage(res_data.token)
+                setUser({ email: "", password: "" })
+                toast.success(`Login Successfull, Welcome ${user.firstname} ${user.lastname}`)
+                navigate('/home')
+            } else {
+                toast.error(res_data.msg)
+                console.log("Invalid Credentials, E-Mail Or Password !!");
+            }
         } catch (error) {
             console.log("Login Error", error);
         }
@@ -63,11 +65,11 @@ const Login = () => {
                         <div className="mt-3">
                             <div className="input-group mt-3">
                                 <label htmlFor='email' style={{ backgroundColor: 'transparent', color: 'white' }} className="input-group-text">Recipient's E-Mail Address :</label>
-                                <input value={user.email} onChange={handleLoginInput} name="email" type="email" style={{ backgroundColor: 'transparent', color: 'white' }} className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required />
+                                <input value={userO.email} onChange={handleLoginInput} name="email" type="email" style={{ backgroundColor: 'transparent', color: 'white' }} className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required />
                             </div>
                             <div className="input-group mt-3">
                                 <label htmlFor='password' style={{ backgroundColor: 'transparent', color: 'white' }} className="input-group-text">Recipient's Password :</label>
-                                <input value={user.password} onChange={handleLoginInput} name="password" type="password" style={{ backgroundColor: 'transparent', color: 'white' }} id="inputPassword5" className="form-control" autoComplete='on' aria-describedby="passwordHelpBlock" required />
+                                <input value={userO.password} onChange={handleLoginInput} name="password" type="password" style={{ backgroundColor: 'transparent', color: 'white' }} id="inputPassword5" className="form-control" autoComplete='on' aria-describedby="passwordHelpBlock" required />
                             </div>
                             <div className="mt-3">
                                 <button style={{ border: '2px solid #5479f7', backgroundColor: '#5479f7' }} onClick={handleLoginSubmit} type="submit" className="btn btn-outline-light">Log-In Now</button>

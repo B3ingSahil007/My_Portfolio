@@ -10,43 +10,43 @@ const Navbar = () => {
         <>
             <div style={{ maxWidth: '140rem' }} className="container mt-3 d-flex justify-content-between">
                 <div className="logo-brand mt-2">
-                    <h4><NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="navbar-brand" to="/">B3ing_Sahil_007</NavLink></h4>
+                    <h4><NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="navbar-brand custom-shadow" to={isLoggedIn ? "/home" : "/login"}>B3ing_Sahil_007</NavLink></h4>
                 </div>
                 <nav className="navbar">
                     <div className="container-fluid">
                         <div>
                             <ul style={{ gap: '1rem' }} className="nav justify-content-end">
-                                <li className="nav-item">
-                                    <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/">Home</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/about">About</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/contact">Contact</NavLink>
-                                </li>
                                 {isLoggedIn ? (
                                     <>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/myprojects">My Projects</NavLink>
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/home">Home</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/experience">Experience</NavLink>
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/about">About</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/services">Services</NavLink>
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/contact">Contact</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/logout">Log Out</NavLink>
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/myprojects">My Projects</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/experience">Experience</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/services">Services</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/logout">Log Out</NavLink>
                                         </li>
                                     </>
                                 ) : (
                                     <>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/registeration">Registeration</NavLink>
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/">Registeration</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link" to="/login">Log In</NavLink>
+                                            <NavLink style={{ color: '#5479f7', textDecoration: 'none' }} className="nav-link custom-shadow" to="/login">Log In</NavLink>
                                         </li>
                                     </>
                                 )}
@@ -58,6 +58,21 @@ const Navbar = () => {
                     </div>
                 </nav>
             </div>
+            <style>{`
+                .custom-shadow {
+                    transition: text-shadow 0.4s ease;
+                }
+                .custom-shadow:hover {
+                    text-shadow: 2px 2px 5px grey;
+                }
+
+                /* Responsive Styles */
+                @media (max-width: 1024px) {
+                ul {
+                    gap: 0rem !important;
+                }
+                }
+            `}</style>
         </>
     )
 }

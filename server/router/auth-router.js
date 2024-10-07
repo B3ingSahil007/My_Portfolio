@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { home, registeration, login, user } = require('../controllers/auth-controller')
-const signUpSchema = require('../validators/auth-validator')
+const { signUpSchema, loginSchema } = require('../validators/auth-validator')
 const validate = require('../middleware/validate-middleware')
 const authMiddleware = require('../middleware/auth-middleware')
 
@@ -22,7 +22,7 @@ router.route("/Registeration").post(
 // router.route("/login").get((req, res) => {
 //     res.status(200).send('Login Page . . .')
 // })
-router.route("/Login").post(login)
+router.route("/Login").post(validate(loginSchema), login)
 router.route("/user").get(authMiddleware, user)
 
 module.exports = router;

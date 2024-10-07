@@ -7,6 +7,7 @@ const Services = () => {
     return (
         <>
             <div style={{ marginTop: '0.5cm' }}>
+                <h2>My <span className='custom-shadow' style={{ color: '#5479f7' }}>Services . . .</span></h2>
                 <div className="row d-flex justify-content-center">
                     {services && services.length > 0 && services.map((item, index) => (
                         <div key={index} className="card m-3 col-5 custom-card" style={{ backgroundColor: 'transparent', border: '2px solid #5479f7', borderRadius: '20px', color: 'white', width: '20rem' }}>
@@ -21,7 +22,6 @@ const Services = () => {
                 </div>
             </div>
 
-            {/* Inline CSS for hover effect */}
             <style>{`
                 .custom-card {
                     box-shadow: 2px 2px 15px #5479f7;
@@ -29,6 +29,23 @@ const Services = () => {
                 }
                 .custom-card:hover {
                     box-shadow: 2px 2px 30px white;
+                }
+                    @media (max-width: 1024px) {
+                    p{
+                    font-size: 0.9rem
+                    }
+                    h6{
+                    font-size: 0.9rem
+                    }
+                    h5{
+                    font-size: 1rem
+                    }
+                    h2{
+                    font-size: 1.8rem
+                    }
+                    div .card{
+                    width: 25rem !important
+                    }
                 }
             `}</style>
         </>

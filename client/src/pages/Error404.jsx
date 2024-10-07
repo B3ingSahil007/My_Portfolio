@@ -5,7 +5,7 @@ const Error404 = () => {
     const navigate = useNavigate();
 
     const connecthome = () => {
-        navigate("/")
+        navigate("/home")
     }
 
     const reportproblem = () => {

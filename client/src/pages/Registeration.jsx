@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../store/auth'
+import { toast } from 'react-toastify'
 
 const URL = 'http://localhost:5000/api/auth/registeration'
 
@@ -37,17 +38,21 @@ const Registeration = () => {
                 body: JSON.stringify(user),
             })
 
-            if (response.ok === true) {
-                const res_data = await response.json();
-                console.log("Response From Server", res_data);
+            const res_data = await response.json();
+            console.log("Response From Server", res_data);
+
+            if (response.ok) {
                 storeTokenInLocalStorage(res_data.token)
                 setUser({ firstname: "", lastname: "", username: "", mnumber: "", city: "", state: "", email: "", password: "" })
-                navigate('/login')
+                toast.success("Registeration Successfull")
+                navigate('/home')
+            } else {
+                toast.error(res_data.msg)
+                console.log("Invalid Credentials !!");
             }
-
-            console.log("Registeration Form", response);
+            // console.log("Registeration Form", response);
         } catch (error) {
-            console.log("Registeration", error);
+            toast.error("Registeration Error");
         }
 
     };
