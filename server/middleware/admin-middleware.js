@@ -5,7 +5,7 @@ const adminMiddleware = async (req, res, next) => {
 
         if (!adminRole) {
             console.log("You Are Not Admin, Login As User");
-            return res.status(403).json({ message: "Don't Be Smart Bro, I Am Watching You, Only Website Creater Should Be Admin. Plz Login As User." })
+            return res.status(403).json({ message: "Don't Be Smart Bro, I Am Watching You, Only Website Creater Should Be Admin And Access This Part. Plz Login As User." })
         }
 
         // req.status(200).json({ msg: adminRole })

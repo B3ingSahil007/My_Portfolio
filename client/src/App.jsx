@@ -16,6 +16,7 @@ import Experience from './pages/Experience'
 import AdminLayouts from './components/layouts/AdminLayouts'
 import AdminUsers from './pages/AdminUsers'
 import AdminContacts from './pages/AdminContacts'
+import AdminUpdate from './pages/AdminUpdate'
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
             <Route path='/admin' element={<AdminLayouts />}>
               <Route path='allusers' element={<AdminUsers />} />
               <Route path='allcontacts' element={<AdminContacts />} />
+              <Route path='allusers/:id/edit' element={<AdminUpdate />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -39,5 +39,48 @@ const getAllContacts = async (req, res) => {
     }
 }
 
-module.exports = { getAllUsers, getAllContacts }
-//^ Don't Be Smart Bro, I Am Watching You, Only Website Creater Should Be Admin. Plz Login As User.
+const deleteUserById = async (req, res, next) => {
+    try {
+        const id = req.params.id
+        await AllUsers.deleteOne({ _id: id })
+        return res.status(200).json({ message: "User deleted successfully" })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const deleteContactsById = async (req, res, next) => {
+    try {
+        const id = req.params.id
+        await AllContacts.deleteOne({ _id: id })
+        return res.status(200).json({ message: "Message Deleted Successfully" })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const getUserById = async (req, res) => {
+    try {
+        const id = req.params.id
+        const data = await AllUsers.findOne({ _id: id }, { password: 0, hashpassword: 0 })
+        return res.status(200).json(data)
+    } catch (error) {
+        // console.log(`Admin One User : ${error}`);
+        next(error)
+    }
+}
+
+const updateUserById = async (req, res) => {
+    try {
+        const id = req.params.id
+        const updatedUserData = req.body
+
+        const updatedUser = await AllUsers.updateOne({ _id: id }, { $set: updatedUserData })
+        res.status(200).json(updatedUser)
+    } catch (error) {
+        // console.log(`Update One User : ${error}`);
+        next(error)
+    }
+}
+
+module.exports = { getAllUsers, getAllContacts, deleteUserById, getUserById, updateUserById, deleteContactsById }
