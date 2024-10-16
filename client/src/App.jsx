@@ -17,6 +17,14 @@ import AdminLayouts from './components/layouts/AdminLayouts'
 import AdminUsers from './pages/AdminUsers'
 import AdminContacts from './pages/AdminContacts'
 import AdminUpdate from './pages/AdminUpdate'
+import AdminProjects from './pages/AdminProjects'
+import AdminExperiences from './pages/AdminExperiences'
+import AdminServices from './pages/AdminServices'
+import AdminAllProjects from './pages/AdminAllProjects'
+import AdminAllExperiences from './pages/AdminAllExperiences'
+import AdminAllServices from './pages/AdminAllServices'
+import AdminProjectUpdate from './pages/AdminProjectUpdate'
+import AdminExperiencesUpdate from './pages/AdminExperiencesUpdate'
 
 const App = () => {
   return (
@@ -40,6 +48,14 @@ const App = () => {
               <Route path='allusers' element={<AdminUsers />} />
               <Route path='allcontacts' element={<AdminContacts />} />
               <Route path='allusers/:id/edit' element={<AdminUpdate />} />
+              <Route path='addprojects' element={<AdminProjects />} />
+              <Route path='addexperience' element={<AdminExperiences />} />
+              <Route path='addservices' element={<AdminServices />} />
+              <Route path='allprojects' element={<AdminAllProjects />} />
+              <Route path='allprojects/:id/edit' element={<AdminProjectUpdate />} />
+              <Route path='allexperiences' element={<AdminAllExperiences />} />
+              <Route path='allexperiences/:id/edit' element={<AdminExperiencesUpdate />} />
+              <Route path='allservices' element={<AdminAllServices />} />
             </Route>
           </Routes>
         </BrowserRouter>

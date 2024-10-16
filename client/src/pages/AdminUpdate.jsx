@@ -78,7 +78,7 @@ const AdminUpdate = () => {
         <>
             <div className="container">
                 <div className='col form'>
-                    <h3>Update <span style={{ color: '#5479f7' }}> User </span> :</h3>
+                    <h3>Update <span className='custom-text' style={{ color: '#5479f7' }}> User </span> :</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="mt-3">
                             <div className="input-group">
@@ -113,6 +113,17 @@ const AdminUpdate = () => {
                     </form>
                 </div>
             </div>
+            <style>{`
+                .custom-text {
+                    transition: text-shadow 0.4s ease;
+                }
+                .custom-text:hover {
+                    text-shadow: 3px 3px 5px grey;
+                }
+                    img{
+                    width: 10cm !important
+                    }
+            `}</style>
         </>
     )
 }

@@ -19,7 +19,7 @@ const projectSchema = new Schema({
         required: true
     },
     link: {
-        type: [String],
+        type: String,
         required: true
     },
 })

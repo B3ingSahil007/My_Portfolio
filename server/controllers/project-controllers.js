@@ -14,4 +14,15 @@ const projects = async (req, res) => {
     }
 }
 
-module.exports = projects
+const addProject = async (req, res) => {
+    try {
+        const response = req.body;
+        console.log(response);
+        await Project.create(response)
+        return res.status(200).json({ msg: "Project Add Successfully . . ." })
+    } catch (error) {
+        return res.status(500).json({ msg: "Project Not Added . . ." })
+    }
+}
+
+module.exports = {projects, addProject}

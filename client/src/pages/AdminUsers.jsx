@@ -51,6 +51,7 @@ const AdminUsers = () => {
     <>
       <div style={{ maxHeight: '78vh', overflowY: 'auto' }} className="container">
         <div className="row">
+          <h3>All <span className='custom-text' style={{ color: '#5479f7' }}> Users :</span></h3>
           {users && users.length > 0 && users.map((item, index) => (
             <div key={index} className="col-6 p-2">
               <div className="card m-1" style={{ border: '2px solid #5479f7', background: 'transparent', color: 'white' }}>
@@ -63,8 +64,8 @@ const AdminUsers = () => {
                   <h6><span style={{ color: '#5479f7' }}>City : </span>{item.city}</h6>
                   <h6><span style={{ color: '#5479f7' }}>State : </span>{item.state}</h6>
                   <h6><span style={{ color: '#5479f7' }}>Admin : </span>{item.isAdmin ? 'Yes' : 'No'}</h6>
-                  <div className="mt-3 justify-content-end d-flex">
-                    <Link onClick={() => { editUser() }} to={`/admin/allusers/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link>
+                  <div style={{ marginTop: '-1cm' }} className="justify-content-end d-flex">
+                    <Link onClick={() => { editProject() }} to={`/admin/allproject/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link>
                     <button onClick={() => { deleteUser(item._id) }} className="btn btn-outline-danger">Delete</button>
                   </div>
                 </div>
@@ -73,6 +74,17 @@ const AdminUsers = () => {
           ))}
         </div>
       </div>
+      <style>{`
+                .custom-text {
+                    transition: text-shadow 0.4s ease;
+                }
+                .custom-text:hover {
+                    text-shadow: 3px 3px 5px grey;
+                }
+                    img{
+                    width: 10cm !important
+                    }
+            `}</style>
     </>
   )
 }

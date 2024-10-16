@@ -14,4 +14,16 @@ const experience = async (req, res) => {
     }
 }
 
-module.exports = experience
+
+const addExperience = async (req, res) => {
+    try {
+        const response = req.body;
+        console.log(response);
+        await Experience.create(response)
+        return res.status(200).json({ msg: "Experience Add Successfully . . ." })
+    } catch (error) {
+        return res.status(500).json({ msg: "Experience Not Added . . ." })
+    }
+}
+
+module.exports = {experience, addExperience}

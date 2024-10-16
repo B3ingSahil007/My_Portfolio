@@ -26,6 +26,7 @@ app.use("/api/data", serviceRoute)
 app.use("/api/data", projectRoute)
 app.use("/api/data", experienceRoute)
 app.use("/api/admin", adminRoute)
+app.use("/api/admin", projectRoute)
 
 // app.get('/', (req, res) => {
 //     res.status(200).send('Home Page . . .')

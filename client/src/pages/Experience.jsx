@@ -16,7 +16,7 @@ const Experience = () => {
 
     return (
         <>
-            <div className="container mt-3 row align-items-center">
+            <div className="mt-3 row align-items-center">
                 <div className="col intro ">
                     <h2>My <span className='custom-shadow' style={{ color: '#5479f7' }}>Experience . . .</span></h2>
                     <p>In this section, I highlight my professional experience in web development, showcasing my journey through various projects and roles.</p>
@@ -33,19 +33,21 @@ const Experience = () => {
             </div>
             <div style={{ marginTop: '0.5cm' }} className="row">
                 {experience && experience.length > 0 && experience.map((item, index) => (
-                    <div className="card col m-2 bg-dark text-light custom-card" style={{ border: '1px solid white' }} key={index}>
-                        <div className="card-header row">
-                            <h5 className='custom-text' style={{ color: '#5479f7' }}>{item.title}</h5>
-                            <h6 style={{ color: "grey" }} className='col'>{item.company}</h6>
-                            <h6 style={{ color: "grey" }} className="col d-flex justify-content-end">{item.duration}</h6>
-                        </div>
-                        <div className="card-body">
-                            <p className="card-text">{item.description}</p>
-                            <div>
-                                <p className="card-text">
-                                    <span style={{ fontWeight: '600' }}>Skills:</span> {item.skills.join(", ")} <br />
-                                    <span style={{ fontWeight: '600' }}>Location:</span> {item.location}
-                                </p>
+                    <div className='col-6 p-2'>
+                        <div className="card m-1 bg-dark text-light custom-card" style={{ border: '1px solid white', }} key={index}>
+                            <div className="card-header row">
+                                <h5 className='custom-text' style={{ color: '#5479f7' }}>{item.title}</h5>
+                                <h6 style={{ color: "grey" }} className='col'>{item.company}</h6>
+                                <h6 style={{ color: "grey" }} className="col d-flex justify-content-end">{item.duration}</h6>
+                            </div>
+                            <div className="card-body">
+                                <p className="card-text">{item.description}</p>
+                                <div>
+                                    <p className="card-text">
+                                        <span style={{ fontWeight: '600', color: '#5479f7' }}>Skills :</span> {item.skills.join(", ")} <br />
+                                        <span style={{ fontWeight: '600', color: '#5479f7' }}>Location :</span> {item.location}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
