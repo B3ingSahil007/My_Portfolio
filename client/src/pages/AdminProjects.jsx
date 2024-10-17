@@ -87,7 +87,7 @@ const AdminProjects = () => {
                             </div>
                             <div className="input-group mt-3">
                                 <span style={{ backgroundColor: 'transparent', color: 'white' }} className="input-group-text">Project Overview :</span>
-                                <textarea value={projectData.overview} onChange={handleInput} name="overview" type="overview" style={{ backgroundColor: 'transparent', color: 'white' }} className="form-control" aria-label="With textarea"></textarea>
+                                <textarea value={projectData.overview} onChange={handleInput} name="overview" type="overview" style={{ backgroundColor: 'transparent', color: 'white', height: '3.5cm' }} className="form-control" aria-label="With textarea"></textarea>
                             </div>
                             <div className="input-group mt-3">
                                 <label htmlFor='skill' style={{ backgroundColor: 'transparent', color: 'white' }} className="input-group-text">Technology Used :</label>

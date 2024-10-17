@@ -98,14 +98,14 @@ const AdminExperiences = () => {
                             </div>
                             <div className="input-group mt-2">
                                 <span style={{ backgroundColor: 'transparent', color: 'white' }} className="input-group-text">Description :</span>
-                                <textarea value={experienceData.description} onChange={handleInput} name="description" type="description" style={{ backgroundColor: 'transparent', color: 'white' }} className="form-control" aria-label="With textarea"></textarea>
+                                <textarea value={experienceData.description} onChange={handleInput} name="description" type="description" style={{ backgroundColor: 'transparent', color: 'white', height: '3.5cm' }} className="form-control" aria-label="With textarea"></textarea>
                             </div>
                             <div className="input-group mt-2">
                                 <label htmlFor='skills' style={{ backgroundColor: 'transparent', color: 'white' }} className="input-group-text">Technology Used :</label>
                                 <input value={newSkill} onChange={handleSkillInput} onKeyDown={(e) => e.key === 'Enter' && addSkill(e)} name="skills" type="text" style={{ backgroundColor: 'transparent', color: 'white' }} className="form-control" id="skillInput" />
                                 <button onClick={addSkill} className="btn btn-outline-light">Add Skill</button>
                             </div>
-                            <div className="mt-2">
+                            <div className="mt-3">
                                 {experienceData.skills.length > 0 && (
                                     <div>
                                         <strong>Your Added Skills: </strong>

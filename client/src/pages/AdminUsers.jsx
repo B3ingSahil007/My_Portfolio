@@ -65,7 +65,7 @@ const AdminUsers = () => {
                   <h6><span style={{ color: '#5479f7' }}>State : </span>{item.state}</h6>
                   <h6><span style={{ color: '#5479f7' }}>Admin : </span>{item.isAdmin ? 'Yes' : 'No'}</h6>
                   <div style={{ marginTop: '-1cm' }} className="justify-content-end d-flex">
-                    <Link onClick={() => { editProject() }} to={`/admin/allproject/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link>
+                    <Link onClick={() => { editProject() }} to={`/admin/allusers/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link>
                     <button onClick={() => { deleteUser(item._id) }} className="btn btn-outline-danger">Delete</button>
                   </div>
                 </div>

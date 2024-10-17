@@ -16,7 +16,7 @@ const AdminAllExperiences = () => {
         }
       })
       const data = await response.json()
-      // console.log(`Users : ${data}`);
+      // console.log(`Experiences : ${data}`);
       setAllExperience(data)
     } catch (error) {
       console.log(error);
@@ -48,16 +48,6 @@ const AdminAllExperiences = () => {
     getAllExperienceData()
   }, []);
 
-  // const defaultExperience = {
-  //   id: "",
-  //   title: "",
-  //   company: "",
-  //   duration: "Month 0000 - Month 0000",
-  //   description: "",
-  //   skills: [],
-  //   location: "City, State, Country",
-  // }
-
   return (
     <>
       <div style={{ maxHeight: '64vh', overflowY: 'auto' }} className="container">
@@ -77,7 +67,7 @@ const AdminAllExperiences = () => {
                   <h6><span style={{ color: '#5479f7' }}>Skills : </span>{item.skills.join(", ")}</h6>
                   <h6><span style={{ color: '#5479f7' }}>Location : </span>{item.location}</h6>
                   <div style={{ marginTop: '-0.5cm' }} className="justify-content-end d-flex">
-                    <Link onClick={() => { editUser() }} to={`/admin/allprojects/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link>
+                    <Link onClick={() => { editUser() }} to={`/admin/allexperiences/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link>
                     <button onClick={() => { deleteExperience(item._id) }} className="btn btn-outline-danger">Delete</button>
                   </div>
                 </div>
@@ -86,6 +76,14 @@ const AdminAllExperiences = () => {
           ))}
         </div>
       </div>
+      <style>{`
+                .custom-text {
+                    transition: text-shadow 0.4s ease;
+                }
+                .custom-text:hover {
+                    text-shadow: 3px 3px 5px grey;
+                }
+            `}</style>
     </>
   )
 }

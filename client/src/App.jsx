@@ -25,6 +25,7 @@ import AdminAllExperiences from './pages/AdminAllExperiences'
 import AdminAllServices from './pages/AdminAllServices'
 import AdminProjectUpdate from './pages/AdminProjectUpdate'
 import AdminExperiencesUpdate from './pages/AdminExperiencesUpdate'
+import AdminServiceUpdate from './pages/AdminServiceUpdate'
 
 const App = () => {
   return (
@@ -46,8 +47,8 @@ const App = () => {
             <Route path='*' element={<Error404 />} />
             <Route path='/admin' element={<AdminLayouts />}>
               <Route path='allusers' element={<AdminUsers />} />
-              <Route path='allcontacts' element={<AdminContacts />} />
               <Route path='allusers/:id/edit' element={<AdminUpdate />} />
+              <Route path='allcontacts' element={<AdminContacts />} />
               <Route path='addprojects' element={<AdminProjects />} />
               <Route path='addexperience' element={<AdminExperiences />} />
               <Route path='addservices' element={<AdminServices />} />
@@ -56,6 +57,7 @@ const App = () => {
               <Route path='allexperiences' element={<AdminAllExperiences />} />
               <Route path='allexperiences/:id/edit' element={<AdminExperiencesUpdate />} />
               <Route path='allservices' element={<AdminAllServices />} />
+              <Route path='allservices/:id/edit' element={<AdminServiceUpdate />} />
             </Route>
           </Routes>
         </BrowserRouter>

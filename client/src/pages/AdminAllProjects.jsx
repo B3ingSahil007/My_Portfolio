@@ -74,6 +74,14 @@ const AdminAllProjects = () => {
                     ))}
                 </div>
             </div>
+            <style>{`
+                .custom-text {
+                    transition: text-shadow 0.4s ease;
+                }
+                .custom-text:hover {
+                    text-shadow: 3px 3px 5px grey;
+                }
+            `}</style>
         </>
     )
 }

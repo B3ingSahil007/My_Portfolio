@@ -95,7 +95,7 @@ const AdminProjectUpdate = () => {
         <>
             <div className="container">
                 <div className='col form'>
-                    <h3>Update <span className='custom-text' style={{ color: '#5479f7' }}> User </span> :</h3>
+                    <h3>Update <span className='custom-text' style={{ color: '#5479f7' }}> Project </span> :</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="mt-3">
                             <div className="row">
@@ -140,6 +140,18 @@ const AdminProjectUpdate = () => {
                     </form>
                 </div>
             </div>
+            <style>{`
+                .custom-text {
+                    transition: text-shadow 0.4s ease;
+                }
+                .custom-text:hover {
+                    text-shadow: 3px 3px 5px grey;
+                }
+                .badge {
+                    padding: 0.5em 1em;
+                    font-size: 0.9em;
+                }
+            `}</style>
         </>
     )
 }

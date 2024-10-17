@@ -45,7 +45,7 @@ const AdminLayouts = () => {
                         <NavLink style={{ color: '#5479f7', textDecoration: 'none', width: '60%' }} className="nav-link custom-shadow mb-3" to="/admin/addexperience">
                             <span> <GiGrowth className='mb-1' /></span> Add Experience
                         </NavLink>
-                        <NavLink style={{ color: '#5479f7', textDecoration: 'none', width: '60%' }} className="nav-link custom-shadow mb-3" to="/admin/allservices">
+                        <NavLink style={{ color: '#5479f7', textDecoration: 'none', width: '60%' }} className="nav-link custom-shadow mb-3" to="/admin/addservices">
                             <span> <HiMiniWrenchScrewdriver className='mb-1' /></span> Add Services
                         </NavLink>
                         <NavLink style={{ color: '#5479f7', textDecoration: 'none', width: '60%' }} className="nav-link custom-shadow mb-3" to="/admin/allprojects">

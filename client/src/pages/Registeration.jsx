@@ -54,7 +54,6 @@ const Registeration = () => {
         } catch (error) {
             toast.error("Registeration Error");
         }
-
     };
 
     const { storeTokenInLocalStorage } = useAuth()

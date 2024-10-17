@@ -2,6 +2,7 @@ const AllUsers = require('../models/user-model')
 const AllContacts = require('../models/contact-model')
 const AllProjects = require('../models/projects-model')
 const AllExperience = require('../models/experience-model')
+const AllService = require('../models/services-model')
 
 const getAllUsers = async (req, res) => {
     try {
@@ -180,4 +181,53 @@ const deleteExperienceById = async (req, res, next) => {
     }
 }
 
-module.exports = { getAllUsers, getAllContacts, deleteUserById, getUserById, updateUserById, deleteContactsById, projectUpload, experienceUpload, deleteProjectById, getAllProject, getProjectById, updateProjectById, getAllExperience, deleteExperienceById }
+const getExperienceById = async (req, res) => {
+    try {
+        const id = req.params.id
+        const data = await AllExperience.findOne({ _id: id })
+        return res.status(200).json(data)
+    } catch (error) {
+        // console.log(`Admin One User : ${error}`);
+        next(error)
+    }
+}
+
+const updateExperienceById = async (req, res) => {
+    try {
+        const id = req.params.id
+        const updatedExperienceData = req.body
+
+        const updatedExperience = await AllExperience.updateOne({ _id: id }, { $set: updatedExperienceData })
+        res.status(200).json(updatedExperience)
+    } catch (error) {
+        // console.log(`Update One User : ${error}`);
+        next(error)
+    }
+}
+
+const serviceUpload = async (req, res) => {
+    try {
+        const response = req.body;
+        await AllService.create(response)
+        return res.status(200).json({ msg: "Service Uploaded Successfully . . ." })
+    } catch (error) {
+        return res.status(500).json({ msg: "Service Not Uploaded . . ." })
+    }
+}
+
+const getAllService = async (req, res) => {
+    try {
+        const service = await AllService.find()
+        // console.log(experience);
+
+        if (!service || !service.length === 0) {
+            return res.status(404).json({ msg: "Experience Not Found" })
+        }
+
+        return res.status(200).json(service)
+    } catch (error) {
+        next("Admin All Experience", error)
+    }
+}
+
+module.exports = { getAllUsers, getAllContacts, deleteUserById, getUserById, updateUserById, deleteContactsById, projectUpload, experienceUpload, deleteProjectById, getAllProject, getProjectById, updateProjectById, getAllExperience, deleteExperienceById, updateExperienceById, getExperienceById, serviceUpload, getAllService }
