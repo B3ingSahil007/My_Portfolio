@@ -22,7 +22,7 @@ const AdminExperiencesUpdate = () => {
   }
 
   const params = useParams();
-  // console.log("Params Single User: ", params);
+  // console.log("Params Single Experience : ", params);
   const { authorizationToken } = useAuth();
 
   const handleSkillInput = (e) => {
@@ -53,7 +53,7 @@ const AdminExperiencesUpdate = () => {
         },
       });
       const data = await response.json();
-      // console.log(`Users Project Data:  ${data}`);
+      // console.log(`Users Experience Data:  ${data}`);
       setData(data);
 
       if (response.ok) {

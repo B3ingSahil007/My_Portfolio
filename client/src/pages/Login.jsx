@@ -40,7 +40,7 @@ const Login = () => {
             if (response.ok) {
                 storeTokenInLocalStorage(res_data.token)
                 setUser({ email: "", password: "" })
-                toast.success(`Login Successfull, Welcome ${user.firstname} ${user.lastname}`)
+                toast.success(`Login Successfull, Welcome ${res_data.firstname} ${res_data.lastname}`)
                 navigate('/home')
             } else {
                 toast.error(res_data.msg)

@@ -32,7 +32,7 @@ const Experience = () => {
                 </div>
             </div>
             <div style={{ marginTop: '0.5cm' }} className="row">
-                {experience && experience.length > 0 && experience.map((item, index) => (
+                {experience && experience.length > 0 && [...experience].reverse().map((item, index) => (
                     <div className='col-6 p-2'>
                         <div className="card m-1 bg-dark text-light custom-card" style={{ border: '1px solid white', }} key={index}>
                             <div className="card-header row">

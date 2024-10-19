@@ -35,7 +35,7 @@ const AdminAllServices = () => {
       // console.log(`Service After Delete : ${data}`);
 
       if (response.ok) {
-        setAllServices()
+        getAllServicesData()
         toast.success(allServices.title, "Service Deleted Successfully")
       }
     } catch (error) {
@@ -47,14 +47,6 @@ const AdminAllServices = () => {
   useEffect(() => {
     getAllServicesData()
   }, []);
-
-  // const defaultService = {
-  //   id: "",
-  //   title: "",
-  //   description: "",
-  //   skills: [],
-  //   image: "",
-  // }
 
   return (
     <>
@@ -73,19 +65,19 @@ const AdminAllServices = () => {
                   <h6><span style={{ color: '#5479f7' }}>Skills : </span>{item.skills.join(", ")}</h6>
                   <h6><span style={{ color: '#5479f7' }}>Image Path : </span>{item.image}</h6>
                   <div style={{ marginTop: '-0.5cm' }} className="justify-content-end d-flex">
-                    {/* <Link onClick={() => { editUser() }} to={`/admin/allexperiences/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link> */}
+                    <Link onClick={() => { editUser() }} to={`/admin/allservices/${item._id}/edit`} className="btn btn-outline-success mx-3">Edit</Link>
                     <button onClick={() => { deleteService(item._id) }} className="btn btn-outline-danger">Delete</button>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
           <div className='row'>
             {allServices && allServices.length > 0 && allServices.map((item, index) => (
-              <div key={index} className='col m-3'>
-                <div className="card" style={{ background: 'transparent', color: 'white' }}>
+              <div key={index} className='col mt-3 p-0'>
+                <div className="card d-flex align-items-center" style={{ background: 'transparent', color: 'white' }}>
                   <div style={{ width: '5cm', border: '2px solid #5479f7', borderRadius: '10px' }} className="card-body">
-                    <h5 className='d-flex justify-content-center'>{item.id}</h5>
+                    <h6 className='d-flex justify-content-start'><span className='mx-1' style={{ color: '#5479f7' }}>ID :</span>{item.id}</h6><hr />
                     <img src={item.image} className="card-img-top" alt={item.title}></img>
                   </div>
                 </div>

@@ -1,6 +1,12 @@
 const User = require('../models/user-model')
 const bcrypt = require('bcryptjs')
 
+/* 
+  ============================
+  🔥 HOME 🔥
+  ============================
+*/
+
 const home = async (req, res) => {
     try {
         res.status(200).send('Home Page . . .')
@@ -10,6 +16,12 @@ const home = async (req, res) => {
 
     }
 }
+
+/* 
+  ============================
+  🔥 REGISTERATION 🔥
+  ============================
+*/
 
 const registeration = async (req, res) => {
     try {
@@ -37,6 +49,12 @@ const registeration = async (req, res) => {
     }
 }
 
+/* 
+  ============================
+  🔥 LOGIN 🔥
+  ============================
+*/
+
 const login = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -55,7 +73,7 @@ const login = async (req, res) => {
         const isPasswordMatch = await userExist.comparePassword(password)
 
         if (isPasswordMatch) {
-            res.status(200).json({ data: "Login Successful", token: await userExist.generateToken(), userID: userExist._id.toString() })
+            res.status(200).json({ data: "Login Successful", token: await userExist.generateToken(), userID: userExist._id.toString(), firstname: userExist.firstname.toString(), lastname: userExist.lastname.toString() })
         } else {
             res.status(401).json({ msg: "Invalid E-Mail Or Password" })
         }
@@ -65,6 +83,12 @@ const login = async (req, res) => {
         res.status(500).send({ msg: "Internal Server Error !!" })
     }
 }
+
+/* 
+  ============================
+  🔥 USER 🔥
+  ============================
+*/
 
 const user = async (req, res) => {
     try {

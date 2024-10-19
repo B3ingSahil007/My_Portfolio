@@ -14,6 +14,15 @@ const MyProjects = () => {
         navigate("/services")
     }
 
+    // const arrangedProjects = [
+    //     projects[1],
+    //     projects[5],
+    //     projects[0],
+    //     projects[2],
+    //     projects[3],
+    //     projects[4],
+    // ].filter(Boolean);
+
     return (
         <>
             <div className="container mt-3 row align-items-center">

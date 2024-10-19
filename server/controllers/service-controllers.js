@@ -14,4 +14,15 @@ const services = async (req, res) => {
     }
 }
 
-module.exports = services
+const addService = async (req, res) => {
+    try {
+        const response = req.body;
+        console.log(response);
+        await Service.create(response)
+        return res.status(200).json({ msg: "Project Add Successfully . . ." })
+    } catch (error) {
+        return res.status(500).json({ msg: "Project Not Added . . ." })
+    }
+}
+
+module.exports = {services, addService}
